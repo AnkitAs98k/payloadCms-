@@ -1,14 +1,4 @@
-# Key Features
 
-- Dynamic workflow configuration through the Payload Admin UI  
-- Multi-stage approval workflows with configurable steps  
-- Automatic workflow triggering using collection hooks  
-- Immutable audit trail using WorkflowLogs  
-- Plugin-based modular workflow system  
-- Custom REST APIs for workflow management  
-- Reusable workflow engine applicable to multiple collections  
-
----
 
 # Steps
 
