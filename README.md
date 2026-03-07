@@ -1,57 +1,106 @@
-Key Features
-  Dynamic workflow configuration through the Payload Admin UI
-  Multi-stage approval workflows with configurable steps
-  Automatic workflow triggering using collection hooks
-  Immutable audit trail using WorkflowLogs
-  Plugin-based modular workflow system
-  Custom REST APIs for workflow management
-  Reusable workflow engine applicable to multiple collections
+# Key Features
 
-steps:
+- Dynamic workflow configuration through the Payload Admin UI  
+- Multi-stage approval workflows with configurable steps  
+- Automatic workflow triggering using collection hooks  
+- Immutable audit trail using WorkflowLogs  
+- Plugin-based modular workflow system  
+- Custom REST APIs for workflow management  
+- Reusable workflow engine applicable to multiple collections  
 
-Initilaized payload cms 
-          ↓    
-designed the collection
-          ↓   
-designed the workflow logic  
-          ↓     
-made hooks inside the blogs and contract
-          ↓
-created plugin system
-          ↓
-Designed the api and the endpoints as mentioned
+---
 
+# Steps
 
-1.Collection : path : ./src/collections
-    * Blog        :  Title, content, author
-    * Contract    :  Name, client, document, Amount, status
-    * Workflow    :  name, targetCollection, steps(stepName,stepType,assignedUser,order) 
-    * WorkflowLogs : workflow, collection, documentId, step, action, user, comment, timestamp
+Initialized Payload CMS  
+↓  
+Designed the collections  
+↓  
+Designed the workflow logic  
+↓  
+Made hooks inside the Blog and Contract collections  
+↓  
+Created plugin system  
+↓  
+Designed the APIs and endpoints as mentioned  
 
+---
 
-2.Creating hooks: path : ./src/collections/blog.collection.ts   &   ./src/collections/contract.collection.ts
-  -> Blog Hooks
-  -> Contract hook
+# 1. Collections  
+Path: `./src/collections`
 
+**Blog**
+- Title
+- Content
+- Author
 
+**Contract**
+- Name
+- Client
+- Document
+- Amount
+- Status
 
-3.WorkFlow logic :  path : ./src/worklog/workflowlogic.ts
-    
-  user save blog or contarct
-              ↓
-  afterchange hook gets triggered
-              ↓
-  startWorkflow() funciton executes
-              ↓
-  system checks for the workflow matching the targetted collection -> if not found, return();
-              ↓
-  if found, automatically creates a new entry in the workflowLog(audit trail)
+**Workflow**
+- name
+- targetCollection
+- steps  
+  - stepName  
+  - stepType  
+  - assignedUser  
+  - order  
 
+**WorkflowLogs**
+- workflow
+- collection
+- documentId
+- step
+- action
+- user
+- comment
+- timestamp
 
-4.Creating plugins -> path : ./src/plugins/wrokflow.plugins.ts
-  designed plugins inside the system inorder registered it globally inside Payload CMS to increase the reusablity of the code.
+---
 
-5.Api Endpoints : 
-  POST /api/workflows/trigger       -> triggers a workflow for a specific document.
-  GET /api/workflows/status/:docId  -> retrieves the workflow logs and current workflow status for a document.
+# 2. Creating Hooks  
+Path:  
+`./src/collections/blog.collection.ts`  
+`./src/collections/contract.collection.ts`
 
+- Blog Hooks
+- Contract Hooks
+
+---
+
+# 3. Workflow Logic  
+Path: `./src/workflow/workflowLogic.ts`
+
+User saves Blog or Contract  
+↓  
+afterChange hook gets triggered  
+↓  
+startWorkflow() function executes  
+↓  
+System checks for the workflow matching the targeted collection  
+↓  
+If not found → return()  
+↓  
+If found → automatically creates a new entry in the WorkflowLogs (audit trail)
+
+---
+
+# 4. Creating Plugins  
+Path: `./src/plugins/workflow.plugins.ts`
+
+Designed plugins inside the system in order to register it globally inside Payload CMS to increase the reusability of the code.
+
+---
+
+# 5. API Endpoints
+
+### Trigger Workflow
+POST `/api/workflows/trigger`
+Triggers a workflow for a specific document.
+
+GET `/api/workflows/status/:docId`
+Check Workflow Status
