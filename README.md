@@ -3,15 +3,15 @@
 # Steps
 
 Initialized Payload CMS  
-↓  
+      ↓  
 Designed the collections  
-↓  
+      ↓  
 Designed the workflow logic  
-↓  
+      ↓  
 Made hooks inside the Blog and Contract collections  
-↓  
+      ↓  
 Created plugin system  
-↓  
+      ↓  
 Designed the APIs and endpoints as mentioned  
 
 ---
@@ -66,15 +66,15 @@ Path:
 Path: `./src/workflow/workflowLogic.ts`
 
 User saves Blog or Contract  
-↓  
+            ↓  
 afterChange hook gets triggered  
-↓  
+            ↓  
 startWorkflow() function executes  
-↓  
+            ↓  
 System checks for the workflow matching the targeted collection  
-↓  
+            ↓  
 If not found → return()  
-↓  
+            ↓  
 If found → automatically creates a new entry in the WorkflowLogs (audit trail)
 
 ---
