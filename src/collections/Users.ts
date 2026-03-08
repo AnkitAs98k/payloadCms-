@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+/*import type { CollectionConfig } from 'payload'
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -11,3 +11,24 @@ export const Users: CollectionConfig = {
     // Add more fields as needed
   ],
 }
+*/
+
+import type { CollectionConfig } from "payload";
+
+export const Users: CollectionConfig = {
+  slug: "users",
+  auth: true,
+  fields: [
+    {
+      name: "role",
+      type: "select",
+      options: [
+        { label: "Admin", value: "admin" },
+        
+        { label: "User", value: "user" }
+      ],
+      required: true,
+      defaultValue:"user"
+    }
+  ]
+};

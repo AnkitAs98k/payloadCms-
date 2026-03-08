@@ -36,5 +36,5 @@ export const startWorkflow = async ({
     },
   })
 
-  console.log(`Workflow started for ${collection} ${docId}`)
+  console.log(`Workflow started for ${collection} ${docId}`);
 }

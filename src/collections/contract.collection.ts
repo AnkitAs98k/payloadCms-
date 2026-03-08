@@ -43,7 +43,7 @@ export const Contract: CollectionConfig = {
   hooks: {
   afterChange: [
     async ({ doc, req }) => {
-  await startWorkflow({
+    await startWorkflow({
     payload: req.payload,
     collection: 'contract',
     docId: doc.id,

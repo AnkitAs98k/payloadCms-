@@ -3,6 +3,10 @@ import { CollectionConfig } from 'payload'
 export const Workflows: CollectionConfig = {
   slug: 'workflows',
 
+  access: {
+  update: () => false,
+  delete: () => false,
+},
   admin: {
     useAsTitle: 'name',
   },
